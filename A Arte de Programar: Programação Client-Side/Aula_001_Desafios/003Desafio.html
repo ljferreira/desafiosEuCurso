@@ -1,0 +1,72 @@
+<script>
+	
+	let altura, peso, imc, analisarIMC, dadosAnaliseIMC, perdaConversao, $NaN;
+	
+	analisarIMC = true;
+	$NaN        = NaN + "";
+	
+	altura = perdaConversao = prompt("Informe sua altura em metros:");
+	if (altura == null) {
+		alert("Foi escolhido cancelar. \nO programa vai ser encerrado!");
+		analisarIMC = false;
+	}
+	else {
+		altura = parseFloat(altura);
+		if (altura + "" == $NaN) {
+			alert("Informado um valor errado para a altura! \nReinicie o programa e tente novamente.");
+			analisarIMC = false;
+		}
+		else if (altura != perdaConversao) {
+			alert("Foi informado um valor incorreto para altura!" +
+				  "\nProvavelmente foi utilizado ',' em vez de '.' para um valor com casas decimais." + 
+				  "\nEx. 1,69 --> use 1.69 (formato americano)." + 
+				  "\nReinicie o programa e tente novamente.");
+			analisarIMC = false;
+		}
+	}
+
+	if (analisarIMC) {
+		peso = perdaConversao = prompt("Informe seu peso em kg:");
+		if (peso == null) {
+			alert("Foi escolhido cancelar. \nO programa vai ser encerrado!");
+			analisarIMC = false;
+		}
+		else {
+			peso = parseFloat(peso);
+			if (peso + "" == $NaN) {
+				alert("Informado um valor errado para o peso! \nReinicie o programa e tente novamente.");
+				analisarIMC = false;
+			}
+			else if (peso != perdaConversao) {
+				alert("Foi informado um valor incorreto para o peso!" +
+				      "\nProvavelmente foi utilizado ',' em vez de '.' para um valor com casas decimais." + 
+				      "\nEx. 80,58 --> use 80.58 (formato americano)." + 
+				      "\nReinicie o programa e tente novamente.");
+				analisarIMC = false;
+			}
+		}
+	}
+
+	if (analisarIMC) {
+
+		imc             = peso / altura ** 2;
+		dadosAnaliseIMC = "Altura: " + altura + "\nPeso: " + peso + "\nIMC: " + imc;
+
+		if (imc < 18.5)
+			dadosAnaliseIMC += "\nVoce esta abaixo do peso.";
+		else if (imc < 25)
+			dadosAnaliseIMC += "\nPeso ideal (parabens).";
+		else if (imc < 30)
+			dadosAnaliseIMC += "\nVoce esta levemente acima do peso.";
+		else if (imc < 35)
+			dadosAnaliseIMC += "\nVoce possui Obesidade Grau I.";
+		else if (imc < 40)
+			dadosAnaliseIMC += "\nVoce possui Obesidade Grau II (severa).";
+		else
+			dadosAnaliseIMC += "\nVoce possui Obesidade Grau III (mórbida).";
+
+		alert(dadosAnaliseIMC);
+
+	}
+
+</script>

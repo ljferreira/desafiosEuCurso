@@ -1,0 +1,51 @@
+<script>
+
+	let msg = "Escolha converter temperatura de:\n" +
+			   "1 - Celsius para Fahrenheit\n" + 
+			   "2 - Celsius para Kelvin\n"     + 
+			   "3 - Fahrenheit para Celsius\n" + 
+			   "4 - Fahrenheit para Kelvin\n"  + 
+			   "5 - Kelvin para Celsius\n"     + 
+			   "6 - Kelvin para Fahrenheit\n";
+
+    let opcao = parseInt(prompt(msg));
+    let temp;
+    let tempConvertida;
+
+    if (opcao == 1) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Celsius:"));
+    	tempConvertida = temp * 9 / 5 + 32;
+    	alert(temp + " grau(s) Celsius equivale a " + tempConvertida + " grau(s) Fahrenheit");
+    }
+
+    if (opcao == 2) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Celsius:"));
+    	tempConvertida = temp + 273.15;
+    	alert(temp + " grau(s) Celsius equivale a " + tempConvertida + " grau(s) Kelvin");
+    }
+
+    if (opcao == 3) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Fahrenheit:"));
+    	tempConvertida = (temp - 32) * 5 / 9;
+    	alert(temp + " grau(s) Fahrenheit equivale a " + tempConvertida + " grau(s) Celsius");
+    }
+
+    if (opcao == 4) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Fahrenheit:"));
+    	tempConvertida = (temp - 32) * 5 / 9 + 273.15;
+    	alert(temp + " grau(s) Fahrenheit equivale a " + tempConvertida + " grau(s) Kelvin");
+    }
+
+    if (opcao == 5) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Kelvin:"));
+    	tempConvertida = temp - 273.15;
+    	alert(temp + " grau(s) Kelvin equivale a " + tempConvertida + " grau(s) Celsius");
+    }
+
+    if (opcao == 6) {
+    	temp           = parseFloat(prompt("Informe a temperatura em graus Kelvin:"));
+    	tempConvertida = (temp - 273.15) * 9 / 5 + 32;
+    	alert(temp + " grau(s) Kelvin equivale a " + tempConvertida + " grau(s) Fahrenheit");
+    }
+
+</script>

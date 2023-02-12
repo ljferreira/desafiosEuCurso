@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Desafio 1 da Aula 3 - A Arte de Programar: Programação Client-Side</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script>
+
+			let listagem = elemento => { 
+
+				let listaNotas = (nota, indiceNota, array) => {
+					
+					listBody += nota;
+					listLog  += nota;
+
+					if (indiceNota + 1 < elemento.Notas.length) {
+						if (indiceNota == elemento.Notas.length - 2) {
+							
+							listBody += " e ";
+							listLog  += " e ";
+
+						}
+						else {
+						    
+						    listBody += ", ";
+						    listLog  += ", ";
+
+						}
+					}
+					else {
+
+						listBody += "<br>";
+						listLog  += "\n";
+
+					}
+
+				}
+				
+				listBody += "Nome: "  + elemento.Nome  + "<br>";
+				listLog  += "Nome : " + elemento.Nome  + "\n";
+				listBody += "Notas: ";
+				listLog  += "Notas: ";
+
+				if (elemento.Notas.length > 0) {
+					
+					elemento.Notas.forEach(listaNotas);
+				}
+				else {
+
+					listBody += "<br>";
+					listLog  += "\n";
+
+				}
+				
+				listBody += "Curso: " + elemento.Curso + "<br><br>";
+				listLog  += "Curso: " + elemento.Curso + "\n\n";
+
+			}
+
+		</script>
+	</head>
+	<body>
+		<script>
+
+			let cadastro = [
+						       {Nome: "Rodrigo", Notas: [10, 10, 10, 8, 9], Curso: "Informática"},
+						       {Nome: "Pedro",   Notas: [ 9,  9,  8, 6, 4], Curso: "História"   },
+						       {Nome: "Maria",   Notas: [10,  9, 10, 7, 6], Curso: "Geografia"  },
+						       {Nome: "João",    Notas: [ 9,  6,  8      ], Curso: "Física"     }
+						   ];
+
+			let listBody = "";
+			let listLog  = "";
+
+			listBody = "*** Listagem com for tradicional ***<br><br>";
+			listLog  = "*** Listagem com for tradicional ***\n\n";
+
+			/****** LISTAGEM COM O USO DO FOR TRADICIONAL ******/
+			for (let indice = 0 ; indice < cadastro.length ; indice++) {
+
+				let notas = "";
+				listBody += "Nome: "  + cadastro[indice].Nome  + "<br>";
+				listLog  += "Nome : " + cadastro[indice].Nome  + "\n";
+
+				for (let indiceNotas = 0 ; indiceNotas < cadastro[indice].Notas.length ; indiceNotas++) {
+
+					notas += cadastro[indice].Notas[indiceNotas];
+					
+					if (indiceNotas + 1 < cadastro[indice].Notas.length)
+						if (indiceNotas == cadastro[indice].Notas.length - 2)
+							notas += " e ";
+						else
+						    notas += ", ";
+
+				}
+
+				listBody += "Notas: " + notas + "<br>";
+				listLog  += "Notas: " + notas + "\n";
+				listBody += "Curso: " + cadastro[indice].Curso + "<br>";
+				listLog  += "Curso: " + cadastro[indice].Curso + "\n";
+				listLog  += "\n";
+				listBody += "<br>";
+
+			}
+
+			listBody += "*** Listagem com for in ***<br><br>";
+			listLog  += "*** Listagem com for in ***\n\n";
+			/****** LISTAGEM COM O USO DO FOR IN ******/
+			for (let indice in cadastro) {
+
+				let notas = "";
+				listBody += "Nome: "  + cadastro[indice].Nome  + "<br>";
+				listLog  += "Nome : " + cadastro[indice].Nome  + "\n";
+
+				for (let indiceNotas in cadastro[indice].Notas) {
+
+					notas += cadastro[indice].Notas[indiceNotas];
+					
+					if (+indiceNotas + 1 < cadastro[indice].Notas.length)
+						if (+indiceNotas == cadastro[indice].Notas.length - 2)
+							notas += " e ";
+						else
+						    notas += ", ";
+
+				}
+
+				listBody += "Notas: " + notas + "<br>";
+				listLog  += "Notas: " + notas + "\n";
+				listBody += "Curso: " + cadastro[indice].Curso + "<br>";
+				listLog  += "Curso: " + cadastro[indice].Curso + "\n";
+				listLog  += "\n";
+				listBody += "<br>";
+
+			}
+
+			listBody += "*** Listagem com for of ***<br><br>";
+			listLog  += "*** Listagem com for of ***\n\n";
+			/****** LISTAGEM COM O USO DO FOR OF ******/
+			for (let elemento of cadastro) {
+
+				let notas = "";
+				listBody += "Nome: "  + elemento.Nome  + "<br>";
+				listLog  += "Nome : " + elemento.Nome  + "\n";
+
+				let indiceNota = 0;
+				for (let nota of elemento.Notas) {
+					
+					notas += nota;
+					
+					if (indiceNota + 1 < elemento.Notas.length)
+						if (indiceNota == elemento.Notas.length - 2)
+							notas += " e ";
+						else
+						    notas += ", ";
+
+					indiceNota++;
+
+				}
+
+				listBody += "Notas: " + notas + "<br>";
+				listLog  += "Notas: " + notas + "\n";
+				listBody += "Curso: " + elemento.Curso + "<br>";
+				listLog  += "Curso: " + elemento.Curso + "\n";
+				listLog  += "\n";
+				listBody += "<br>";
+
+			}
+
+
+			listBody += "*** Listagem com forEach ***<br><br>";
+			listLog  += "*** Listagem com forEach ***\n\n";
+			/****** LISTAGEM COM O USO DO FOREACH ******/
+			cadastro.forEach(listagem);
+
+			console.log(listLog);
+			document.body.innerHTML = listBody;
+
+		</script>
+	</body>
+</html>

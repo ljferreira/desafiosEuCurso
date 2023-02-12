@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Conversão de Temperaturas</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<script>
+			
+			let msg = "Escolha uma opção para conversão de temperatura:\n" +
+			          "1 - Celsius para Fahrenheit\n" + 
+			          "2 - Celsius para Kelvin\n"     + 
+			          "3 - Fahrenheit para Celsius\n" + 
+			          "4 - Fahrenheit para Kelvin\n"  + 
+			          "5 - Kelvin para Celsius\n"     + 
+			          "6 - Kelvin para Fahrenheit\n"  + 
+			          "7 - Para sair";
+			
+			let converte        = "";
+			let temp            = "";
+
+			while (converte != "7") {
+
+				converte = prompt(msg);
+				
+				if (converte == null)
+					converte = "7";
+				else if (converte == "1") {
+					temp = prompt("Informe a temperatura em graus Celsius: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Celsius é igual a " + ((temp * 9 / 5) + 32) + " grau(s) Fahrenheit");
+					}
+				}
+				else if (converte == "2") {
+					temp = prompt("Informe a temperatura em graus Celsius: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Celsius é igual a " + (temp + 273.15) + " grau(s) Kelvin");
+					}
+				}
+				else if (converte == "3") {
+					temp = prompt("Informe a temperatura em graus Fahrenheit: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Fahrenheit é igual a " + ((temp - 32) * 5 / 9) + " grau(s) Celsius");
+					}
+				}
+				else if (converte == "4") {
+					temp = prompt("Informe a temperatura em graus Fahrenheit: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Fahrenheit é igual a " + ((temp - 32) * 5 / 9 + 273.15) + " grau(s) Kelvin");
+					}
+				}
+				else if (converte == "5") {
+					temp = prompt("Informe a temperatura em graus Kelvin: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Kelvin é igual a " + (temp - 273.15) + " grau(s) Celsius");
+					}
+				}
+				else if (converte == "6") {
+					temp = prompt("Informe a temperatura em graus Kelvin: ");
+					if (temp != null) {
+						temp = parseFloat(temp);
+						alert(temp + " grau(s) Kelvin é igual a " + ((temp - 273.15) * 9 / 5 + 32) + " grau(s) Fahrenheit");
+					}
+				}
+
+			}
+		</script>
+	</body>
+</html>

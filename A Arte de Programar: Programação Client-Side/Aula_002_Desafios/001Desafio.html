@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Converte Temperatura de Celsius para Fanrenheit</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<script>
+			
+			let msg = "";
+			let converte = "";
+			while (converte == "") {
+
+				converte = prompt(msg + "Converter temperatura de Celsius para Fahrenheit (S/N)?");
+				msg = "";
+		
+				if (converte == "s")
+					converte = "S";
+				else if (converte == "n")
+					;
+				else if (converte == "N")
+					;
+				else if (converte != null) {
+					msg = "Opção inválida (" + converte + ")\n";
+					converte = "";
+				}
+
+				if (converte == "S") {
+					
+					let tempCelsius    = parseFloat(prompt("Informe a temperatura em graus Celsius: "));
+					let tempFahrenheit = (tempCelsius * 9 / 5) + 32;
+					alert(tempCelsius + " grau(s) Celsius é igual a " + tempFahrenheit + " grau(s) Fahrenheit")
+					converte = "";
+
+				}
+			}
+		</script>
+	</body>
+</html>
