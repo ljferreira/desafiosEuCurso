@@ -1,0 +1,22 @@
+<meta charset = "UTF-8">
+<body>
+	<script>
+	
+		let array2 = [
+			             {Nome:"Rodrigo", Nota:10},
+			             {Nome:"Pedro"  , Nota: 6},
+			             {Nome:"Marcelo", Nota: 7},
+			             {Nome:"Luis"   , Nota: 8},
+			             {Nome:"Carlos" , Nota: 3},
+			         ];
+
+		//desafio 6: Um array com o nome (apenas o nome) de todas as pessoas que tiraram nota > que 7 (do array 2).
+
+		let array3 = array2.filter(elem => elem.Nota > 7).map(elem => elem.Nome).sort();
+		
+		console.log(array3);
+
+		document.body.innerHTML = "Alunos com nota maior do que 7:<br>" + array3.toString();
+
+	</script>
+</body>

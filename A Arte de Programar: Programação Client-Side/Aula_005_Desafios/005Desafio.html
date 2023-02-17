@@ -1,0 +1,22 @@
+<meta charset = "UTF-8">
+<body>
+	<script>
+	
+		let array2 = [
+			             {Nome:"Rodrigo", Nota:10},
+			             {Nome:"Pedro"  , Nota: 6},
+			             {Nome:"Marcelo", Nota: 7},
+			             {Nome:"Luis"   , Nota: 8},
+			             {Nome:"Carlos" , Nota: 3},
+			         ];
+
+		//desafio 5: Retornar o primeiro elemento (objeto literal) cujo atributo Nome é "Rodrigo".
+
+		let objeto = array2.find(elem => elem.Nome = "Rodrigo");
+		
+		console.log(objeto);
+
+		document.body.innerHTML = "Nome: " + objeto.Nome + "<br>" + "Nota: " + objeto.Nota;
+
+	</script>
+</body>

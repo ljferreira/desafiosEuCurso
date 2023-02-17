@@ -1,0 +1,26 @@
+<meta charset = "UTF-8">
+<body>
+	<script>
+	
+		let array2 = [
+			             {Nome:"Rodrigo", Nota:10},
+			             {Nome:"Pedro"  , Nota: 6},
+			             {Nome:"Marcelo", Nota: 7},
+			             {Nome:"Luis"   , Nota: 8},
+			             {Nome:"Carlos" , Nota: 3},
+			         ];
+
+		//desafio 3: Gerar um array que tenha apenas os alunos com nota menor ou igual a 7.
+
+		let array3 = array2.filter(elem => elem.Nota <= 7).sort((a,b) => {if (a.Nome > b.Nome) return 1; if ( a.Nome < b.Nome) return -1; return 0});
+		
+		console.log(array3);
+
+		let msg = "";
+		for( elem of array3)
+			msg += "Nome: " + elem.Nome + "<br>Nota:&nbsp&nbsp&nbsp" + elem.Nota + "<br><br>"; 
+
+		document.body.innerHTML = "Alunos com nota menor ou igual a 7:<br><br>" + msg;
+
+	</script>
+</body>

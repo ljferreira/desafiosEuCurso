@@ -1,0 +1,41 @@
+<meta charset = "UTF-8">
+<body>
+	<script>
+	
+		let array3 = [
+			             {Nome:"Rodrigo", Nota:[10, 10, 10]   },
+			             {Nome:"Pedro"  , Nota:[ 6,  4,  9, 2]},
+			             {Nome:"Marcelo", Nota:[ 7,  7,  7, 5]},
+			             {Nome:"Luis"   , Nota:[ 8,  2]       },
+			             {Nome:"Carlos" , Nota:[ 3,  0,  1]   },
+			         ];
+
+		//desafio 7: Gerar um array que tenha Nome, Nota, Média das notas, mas apenas de quem teve média das notas abaixo de 7.
+
+		let mediaNotas = notas => {
+			                          let somaNotas = 0;
+			                          for (nota of notas)
+			                          	somaNotas += nota;
+			                          return somaNotas / notas.length;
+		                          } 
+
+		let arrayAlunosRecuperacao = array3.filter(elem => mediaNotas(elem.Nota) < 7).
+		                             map(elem => ({Nome: elem.Nome, Notas: elem.Nota.join(", "), Media: mediaNotas(elem.Nota).toFixed(2)})).
+		                             sort((a,b) => {
+		                 	             if (a.Nome > b.Nome) return  1; 
+		                 	             if (a.Nome < b.Nome) return -1;
+		                 	             return 0; 
+		                            });
+		
+		console.log(arrayAlunosRecuperacao);
+
+        let msg = "Alunos em recuperação:<br>";
+        for (elem of arrayAlunosRecuperacao)
+        	msg += "Nome: &nbsp" + elem.Nome   + "<br>" +
+		           "Notas:&nbsp" + elem.Notas  + "<br>" +
+		           "Média:&nbsp" + elem.Media  + "<br><br>";
+
+		document.body.innerHTML = msg;
+
+	</script>
+</body>

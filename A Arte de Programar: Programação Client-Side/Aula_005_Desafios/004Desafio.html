@@ -1,0 +1,26 @@
+<meta charset = "UTF-8">
+<body>
+	<script>
+	
+		let array2 = [
+			             {Nome:"Rodrigo", Nota:10},
+			             {Nome:"Pedro"  , Nota: 6},
+			             {Nome:"Marcelo", Nota: 7},
+			             {Nome:"Luis"   , Nota: 8},
+			             {Nome:"Carlos" , Nota: 3},
+			         ];
+
+		//desafio 4: Ordenar o array2 em ordem crescente de notas.
+
+		array2.sort((a,b) => a.Nota - b.Nota);
+		
+		console.log(array2);
+
+		let msg = "";
+		for( elem of array2)
+			msg += "Nome: " + elem.Nome + "<br>Nota:&nbsp&nbsp&nbsp" + elem.Nota + "<br><br>"; 
+
+		document.body.innerHTML = msg;
+
+	</script>
+</body>
