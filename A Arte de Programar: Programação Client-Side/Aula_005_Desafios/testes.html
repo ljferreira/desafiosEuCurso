@@ -1,0 +1,41 @@
+<script>
+
+//testes de passagem de parâmetros com arrow function na programação funcional
+ordena1 = (a,b) => {
+                       if (a.nome > b.nome) return 1;
+                       if (a.nome < b.nome) return -1;
+                       return 0;
+                   }
+
+ordena2 = (a,b) => (a.nome > b.nome)?1:(a.nome < b.nome)?-1:0;
+
+ordena3 = campo => (a,b) => (a[campo] > b[campo])?1:(a[campo] < b[campo])?-1:0;
+
+function ordena4(campo) {
+
+    return ordenaInterno;
+
+    function ordenaInterno(a,b) {
+
+        if (a[campo] > b[campo]) return 1;
+        if (a[campo] < b[campo]) return -1;
+        return 0;
+
+    }
+
+}
+
+mapa    = (campo,car = "*") => elem => elem[campo] + 1 + car;
+
+let pessoas = [{nome: 'Pedro',    idade: 55},
+               {nome: 'Bruno',    idade: 25},
+               {nome: 'Catarina', idade: 45}];
+
+//pessoas.sort(ordena2);
+//pessoas.sort(ordena3("nome"));
+pessoas.sort(ordena4("idade"));
+//console.log(pessoas.map(mapa("idade","!")));
+
+console.log(pessoas);
+
+</script>
