@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Aula 8/50 [A Arte de Programar: Programação Client-Side] - Desafio 1</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="js/script.js"></script>
+		<link rel="stylesheet" href="css/styles.css" />
+
+	</head>
+	<body onload="exibirCadastro();">
+		<img src="img/imagem.png" />
+		<h2>Cadastro de Funcionários</h2>
+		<form>
+			<label for="idNome" >Nome: </label><br />
+			<input type="text" id="idNome" /><br />
+			<label for="idEmail" >Email:</label> <br />
+			<input type="text" id="idEmail"/><br />
+			<label for="idFone" >Telefone:</label><br />
+			<input type="text" id="idFone" /><br />
+			<label for="Filial" >Filial:</label><br /> 
+			<select id="idFilial" >
+				<option value="poa">PortoAlegre</option>
+				<option value="sp">São Paulo</option>
+				<option value="rj">Rio de Janeiro</option>
+			</select><br />
+			<label for="idObs" >Observações:</label><br />
+			<textarea id="idObs">
+			</textarea><br />
+			<button onclick="return inserirCadastro();">Inserir</button>
+		</form>
+		<br/>
+		<div id="idTabela">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Aula 7/50 [A Arte de Programar: Programação Client-Side] - Desafio 2</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script>
+
+			let cadastro = [];
+			
+			let tabela;
+
+			let gerarTabela     = () =>  "<table border=1><tr><td>Nome</td><td>Sobrenome</td><td>Idade</td><td>Cidade</td><td>Remover</td></tr>" +                         cadastro.map((elem, indice) => `<tr><td>${elem.Nome}</td><td>${elem.Sobrenome}</td><td>${elem.Idade}</td>
+			                             <td>${elem.Cidade}</td><td onclick="removerCadastro(${indice}); exibirCadastro();">REMOVER</td></tr>`).join("") + "</table>"
+			
+			let exibirCadastro  = () => {
+				                            tabela = gerarTabela();
+				                            document.getElementById("idTabela").innerHTML = tabela;
+				                        }
+			
+			let inserirCadastro = () => {
+				                            cadastro = [...cadastro, {Nome:      document.getElementById("idNome").value, 
+				                            	                      Sobrenome: document.getElementById("idSobrenome").value,
+				                            	                      Idade:     document.getElementById("idIdade").value,
+				                            	                      Cidade:    document.getElementById("idCidade").value,
+				                            	                     }
+				                            	       ];
+				                            cadastro.sort((a,b) => (a.Nome > b.Nome) ? 1 : (a.Nome < b.Nome) ? -1 : 0);
+				                            exibirCadastro();
+				                            return false;
+				                        }
+
+		    let removerCadastro = indice => cadastro = cadastro.filter((elem, ind) => ind != indice);
+
+		</script>
+	</head>
+	<body onload="exibirCadastro();">
+		<form>
+			Nome: <input type="text" id="idNome" /><br/><br/>
+			Sobrenome: <input type="text" id="idSobrenome"/><br/><br/>
+			Idade: <input type="text" id="idIdade" /><br/><br/>
+			Cidade: <input type="text" id="idCidade" /><br/><br/>
+			<button onclick="return inserirCadastro();">Inserir</button>
+		</form>
+		<br/>
+		<div id="idTabela">
+		</div>
+	</body>
+</html>

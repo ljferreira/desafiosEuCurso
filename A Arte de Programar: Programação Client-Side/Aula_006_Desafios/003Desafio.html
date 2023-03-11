@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    	<Title>Desafio 3 em HTML</Title>
+    	<meta charset="UTF-8" />
+    	<script>
+	        let celsiusParaFahrenheit = tempCelsius => +tempCelsius * 9 / 5 + 32;
+	        let converteTemp          = (tempEntrada, tempSaida) => {
+	        	                                                 document.getElementById(tempSaida).value = 
+	        	                                                 celsiusParaFahrenheit(document.getElementById(tempEntrada).value);
+	        	                                             }    
+	    </script>
+    </head>
+    <body>
+    	<form>
+    		Informe  a temperatura em graus Celsius: <input id="idTempCelsius" type="text" name="tempCelsius"  /><br /><br />
+    		Temperatura em Fahrenheit é: <input id="idTempFahrenheit" type="text" name="tempFahrenheit" /><br /><br />
+    		<button onclick="converteTemp('idTempCelsius','idTempFahrenheit'); return false">Converter de Celsius para Fahrenheit</button>
+    	</form>
+    </body>
+</html>

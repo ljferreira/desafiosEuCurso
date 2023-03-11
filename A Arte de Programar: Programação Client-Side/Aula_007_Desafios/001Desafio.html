@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+    	<meta charset="UTF-8" />
+    	<title>Título desta Página</title>
+
+    	<script>
+    		let cadastro = [];
+
+    		let remover = (lista, indice) => {
+    			                         let listaNova = lista.filter( (e, i) => indice != i );
+                                         exibir(listaNova);
+                                         cadastro = listaNova;
+    		                         }
+
+            let exibir = lista => {
+                                    let idElemento       = document.getElementById("idCadastro");
+
+                                    let html = `<table border="1">
+                                                   <tr>
+                                                       <td>Nome</td>
+                                                       <td>Email</td>
+                                                       <td>Telefone</td>
+                                                       <td>Remover</td>
+                                                   </tr>` + lista.map( (e,i) => `<tr><td>${e.nome}</td><td>${e.email}</td><td>${e.telefone}</td><td><a onclick='remover(cadastro,${i})'>REMOVER</a></td></tr>`).join('') + `</table>`;
+
+                                    idElemento.innerHTML = html;
+                                  }
+
+            let inserir = lista => {
+                                    let nome      = document.getElementById("idNome").value;
+                                    let email     = document.getElementById("idEmail").value;
+                                    let telefone  = document.getElementById("idTelefone").value;
+                                    let listaNova = [...lista, {nome:nome, email:email, telefone:telefone}];
+                                    exibir(listaNova);
+                                    cadastro = listaNova;
+
+                                    return false;
+                                }
+
+    	</script>
+
+	</head>
+
+	<body onload="exibir(cadastro)">
+
+        <form>
+        	Nome: <input id="idNome">
+        	<br>
+        	Email: <input id="idEmail">
+        	<br>
+        	Telefone: <input id="idTelefone">
+        	<br>
+        	<button onclick="return inserir(cadastro)">Inserir</button>
+        </form>
+
+		<div id="idCadastro">
+		</div>
+	</body>
+</html>
